@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parduotuve</title>
+    <title>Parduotuvė "Baigiamasis darbas"</title>
 </head>
 <body>
-<h1>Parduotuve</h1><hr>
+<h1>Parduotuvė</h1><hr>
 <h4>Elektronikos prekės iš visos Lietuvos</h4>
+<form action="/" method="get">
+    Paieška pagal skelbimo pavadinimą: <input type="text" name="title"><br>
+    <input type="submit" value="Paiška"/>
+</form>
 <#list products as product>
     <div>
         <p><b>${product.title}</b> ${product.price} € | <a href="/product/${product.id}">Plačiau...}</a></p>
     </div>
+    <#else>
+    <h3>Prekių nėra</h3>
 </#list>
 <hr>
 <h3>Sukurti naują prekę</h3>
