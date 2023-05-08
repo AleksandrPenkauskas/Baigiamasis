@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parduotuvė "Baigiamasis darbas"</title>
+    <title>El.Parduotuvė "Baigiamasis darbas"</title>
 </head>
 <body>
-<h1>Parduotuvė</h1><hr>
+<h1>Elektronikos prekių parduotuvė</h1><hr>
 <h4>Elektronikos prekės iš visos Lietuvos</h4>
 <form action="/" method="get">
     Paieška pagal skelbimo pavadinimą: <input type="text" name="title"><br>
@@ -19,13 +19,16 @@
 </#list>
 <hr>
 <h3>Sukurti naują prekę</h3>
-<form action="/product/create" method="post">
+<form action="/product/create" method="post" enctype="multipart/form-data">
     Skelbimo pavadinimas: <input type="text" name="title"/><br><br>
     Skelbimo aprašymas: <input type="text" name="description"/><br><br>
     Kaina: <input type="number" name="price"/><br><br>
     Miestas: <input type="text" name="city"/><br><br>
     Vardas: <input type="text" name="author"/><br><br>
+    Pirma nuotrauka: <input type="file" name="file1" accept="image/png, image/jpeg"/><br><br>
+    Antra nuotrauka: <input type="file" name="file2" accept="image/png, image/jpeg"/><br><br>
+    Trečia nuotrauka: <input type="file" name="file3" accept="image/png, image/jpeg"/><br><br>
     <input type="submit" value="Pridėti prekę"/>
-    </form>
+</form>
 </body>
 </html>

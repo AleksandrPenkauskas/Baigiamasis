@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parduotuve</title>
+    <title>El.Parduotuvė "Baigiamasis darbas"</title>
 </head>
 <body>
-<h1>Parduotuve</h1><hr>
+<h1>Elektronikos prekių parduotuvė</h1><hr>
 <h4>Plati informacija apie prekę</h4>
+<#list images as img>
+    <img src="/images/${img.id}" height="60px"/><br><br>
+</#list>
 <b>Prekės pavadinimas: </b>${product.title}<br>
 <b>Prekės aprašymas: </b>${product.description}<br>
 <b>Kaina: </b>${product.price}<br>
