@@ -1,6 +1,5 @@
 package lt.aleksandr.baigiamasis.controllers;
 
-
 import lt.aleksandr.baigiamasis.models.Image;
 import lt.aleksandr.baigiamasis.repositories.ImageRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.io.ByteArrayInputStream;
 
 @RestController

@@ -3,7 +3,7 @@ package lt.aleksandr.baigiamasis.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
+import javax.persistence.*;
 @Entity
 @Table(schema = "baigiamasis_db", name = "images")
 @Data
