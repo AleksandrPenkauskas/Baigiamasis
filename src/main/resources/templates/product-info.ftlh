@@ -11,9 +11,9 @@
 </#list>
 <b>Prekės pavadinimas: </b>${product.title}<br>
 <b>Prekės aprašymas: </b>${product.description}<br>
-<b>Kaina: </b>${product.price}<br>
+<b>Kaina: </b>${product.price}.00€<br>
 <b>Miestas: </b>${product.city}<br>
-<b>Autorius: </b>${product.user.name}<br>
+<b>Autorius: </b><a href="/user/${product.user.id}">${product.user.name}</a><br>
 <b>Telefono numeris: </b>${product.user.phoneNumber}<br>
 </body>
 </html>
