@@ -12,6 +12,6 @@
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     <input type="submit" value="Prisijungti"/>
 </form>
-<a href="/registration">Registracija</a>
+<a href="/registration">[Registracija]</a>
 </body>
 </html>

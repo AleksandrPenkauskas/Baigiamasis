@@ -9,12 +9,12 @@
     <h4>Vartotojo vardas: <i>${user.name}</i>
         <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="[Atsijungti]">
+        <input type="submit" value="Atsijungti">
     </form>
     <#else>
     <a href="/login">[Prisijungti]</a></h4>
-</#if><hr>
-
+</#if>
+<hr>
 <h4>Elektronikos prekės iš visos Lietuvos</h4>
 <form action="/" method="get">
     Paieška pagal skelbimo pavadinimą: <input type="text" name="title"><br>
@@ -35,13 +35,12 @@
     Skelbimo aprašymas: <input type="text" name="description"/><br><br>
     Kaina: <input type="number" name="price"/><br><br>
     Miestas: <input type="text" name="city"/><br><br>
-    Vardas: <input type="text" name="author"/><br><br>
     Pirma nuotrauka: <input type="file" name="file1" accept="image/png, image/jpeg"/><br><br>
     Antra nuotrauka: <input type="file" name="file2" accept="image/png, image/jpeg"/><br><br>
     Trečia nuotrauka: <input type="file" name="file3" accept="image/png, image/jpeg"/><br><br>
     <input type="hidden" name="_csrf" value="${_csrf.token}">
     <input type="submit" value="Pridėti prekę"/>
 </form>
-</#if>>
+</#if>
 </body>
 </html>

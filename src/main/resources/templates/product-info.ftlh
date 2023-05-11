@@ -14,5 +14,6 @@
 <b>Kaina: </b>${product.price}<br>
 <b>Miestas: </b>${product.city}<br>
 <b>Autorius: </b>${product.user.name}<br>
+<b>Telefono numeris: </b>${product.user.phoneNumber}<br>
 </body>
 </html>
