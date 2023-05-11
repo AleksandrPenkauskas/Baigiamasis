@@ -6,11 +6,12 @@
 <body>
 <h1>| Elektronikos prekių parduotuvė |</h1><hr>
     <#if user.email??>
-    <h4>Vartotojo vardas: <i>${user.name}</i>
+    <h4>Vartotojo vardas: <i>${user.name}</i></h4>
         <form action="/logout" method="post">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type="submit" value="Atsijungti">
     </form>
+<#if user.isAdmin()><a href="/admin">Administratoriaus valdymo meniu</a></#if>
     <#else>
     <a href="/login">[Prisijungti]</a></h4>
 </#if>
