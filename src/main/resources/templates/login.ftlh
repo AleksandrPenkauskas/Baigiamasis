@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1><hr>
-<h4>Autorizacija</h4>
-<form action="/login" method="post">
-    El.paštas: <input type="email" name="username"><br><br>
-    Slaptažodis: <input type="password" name="password"><br><br>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+<h1 style="text-align: center">Autorizavimas</h1>
+<hr>
+<form action="/login " method="post">
+    <div class="form-group">
+        <label for="email">Elektroninis paštas</label>
+        <input type="email" class="form-control <#if RequestParameters.error??>is-invalid</#if>" id="email" name="username">
+        <div id="email" class="invalid-feedback">
+            Neteisingas elektroninis paštas
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Slaptažodis</label>
+        <input type="password" class="form-control <#if RequestParameters.error??>is-invalid</#if>" id="password" name="password">
+        <div id="password" class="invalid-feedback">
+            Neteisingas slaptažodis
+        </div>
+    </div>
     <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Prisijungti"/>
+    <button type="submit" style="width: 100%" class="btn btn-dark">Prisijungti</button>
 </form>
-<a href="/registration">[Registracija]</a>
-</body>
-</html>
+<hr>
+<h2>Neturite vartotojo akauto? <a href="/registration">Užsiregistruokite!</a></h2>
+</@t.template>

@@ -1,23 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1><hr>
-<h3>Platesnė informacija apie vartotoją</h3>
-<b>Telefono numeris: </b> ${user.phoneNumber}<br>
-<b>El.paštas: </b> ${user.email}<br>
-<h4>Vartotojo ${user.name} prekės</h4>
-<#list products as product>
-<div>
-    <p><b>${product.title}</b> ${product.price}.00€ | <a href="/product/${product.id}">Plačiau...}</a></p>
+<#import "blocks/template.ftlh" as t>
+<@t.template userByPrincipal>
+<h1 style="text-align: center">Vartotojo informacija</h1>
+<hr>
+<div style="text-align: center">
+    <img src="/static/images/avatar.png"
+         style="border:2px solid black; border-radius: 20px" height="120">
+    <br>
+    <br>
+    <h2>${user.name}</h2>
+    <br>
+    Telefono numeris: <b>${user.phoneNumber}</b>
 </div>
-<#else>
-<h3>Prekių nėra</h3>
+<br>
+<hr>
+<h1 style="text-align: center">Vartotojo prekės ${user.name}</h1>
+<br>
+<div class="card-columns">
+    <#list products as product>
+    <a href="/product/${product.id}" class="product-link">
+        <div class="card text-white bg-dark my-3 product">
+
+            <img src="/images/${product.previewImageId}"
+                 class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">${product.title}</h5>
+                <p class="card-text">${product.price}.00€</p>
+            </div>
+            <div class="card-footer">
+                ${product.user.name}
+            </div>
+        </div>
+    </a>
+    <#else>
+    <h1 style="text-align: center">Nerasta</h1>
 </#list>
-<#if errorMessage??>
-<h2 style="color: red">${errorMessage}</h2>
-</#if>
-</body>
-</html>
+</div>
+</@t.template>

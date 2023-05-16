@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1>
-<hr>
-<h4>Administratoriaus valdymo meniu</h4>
-<table border="1">
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+`<h1 style="text-align: center">Administratoriaus valdymo meniu</h1><hr>
+<table class="table table-hover table-dark">
     <tr>
-        <th>Email</th>
-        <th>Telefono numeris</th>
-        <th>Aktyvumas</th>
-        <th>Rolė</th>
-        <th>Ban</th>
-        <th>Redagavimas</th>
-        <th>Platesnė informacija</th>
+        <th scope="col">Elektroninis paštas</th>
+        <th scope="col">Telefono numeris</th>
+        <th scope="col">Aktyvumas</th>
+        <th scope="col">Rolė</th>
+        <th scope="col">Banas</th>
+        <th scope="col">Redagavimas</th>
+        <th scope="col">Platesnė informacija</th>
     </tr>
     <#list users as user>
     <tr>
@@ -26,7 +20,7 @@
         <th>
             <form action="/admin/user/ban/${user.id}" method="post">
                 <input type="hidden" name="_csrf" value="${_csrf.token}">
-                <input type="submit" value="Бан">
+                <input type="submit" class="btn btn-light" value="BANAS">
             </form>
         </th>
         <th><a href="/admin/user/edit/${user.id}">Redagavimas</a></th>
@@ -36,5 +30,4 @@
     <h3>Vartotojų nėra</h3>
 </#list>
 </table>
-</body>
-</html>
+</@t.template>

@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1><hr>
-<h4>Registracija</h4>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+<h1 style="text-align: center">Registracija</h1>
+<hr>
 <form action="/registration" method="post">
-    Vartotojo vardas: <input type="text" name="name"><br><br>
-    El.paštas: <input type="email" name="email"><br><br>
-    Telefono numeris: <input type="text" name="phoneNumber"><br><br>
-    Slaptažodis: <input type="password" name="password"><br><br>
+    <div class="form-group">
+        <label for="name">Vartotojo vardas</label>
+        <input type="text" class="form-control" required id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="email">Elektroninis paštas</label>
+        <input type="email" class="form-control" id="email" required name="email">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Telefono numeris</label>
+        <input type="text" class="form-control" id="phoneNumber" required name="phoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="password">Slaptažodis</label>
+        <input type="password" class="form-control" id="password" required name="password">
+    </div>
     <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Užsiregistruoti"/>
+    <button type="submit" style="width: 100%" class="btn btn-dark">Užsiregistruoti</button>
 </form>
-<br>
 <#if errorMessage??>
-    <h2 style="color: red">${errorMessage}</h2>
+<h2 style="color: red">${errorMessage}</h2>
 </#if>
-</body>
-</html>
+</@t.template>

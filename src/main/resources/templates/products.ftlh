@@ -1,47 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1><hr>
-    <#if user.email??>
-    <h4>Vartotojo vardas: <i>${user.name}</i></h4>
-        <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="${_csrf.token}">
-        <input type="submit" value="Atsijungti">
-    </form>
-<#if user.isAdmin()><a href="/admin">Administratoriaus valdymo meniu</a></#if>
-    <#else>
-    <a href="/login">[Prisijungti]</a></h4>
-</#if>
-<hr>
-<h4>Elektronikos prekės iš visos Lietuvos</h4>
-<form action="/" method="get">
-    Paieška pagal skelbimo pavadinimą: <input type="text" name="title"><br>
-    <input type="submit" value="Paiška"/>
-</form>
-<#list products as product>
-    <div>
-        <p><b>${product.title}</b> ${product.price}.00€ | <a href="/product/${product.id}">Plačiau...}</a></p>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+<h1 style="text-align: center">Prekių paieška</h1><hr>
+<form method="get" action="/">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="searchCity">Miestas</label>
+            <select id="searchCity" class="form-control">
+                <option value="">Miestas nepasirinktas</option>
+                <option value="Vilnius">Vilnius</option>
+                <option value="Kaunas">Kaunas</option>
+                <option value="Klaipėda">Klaipėda</option>
+                <option value="Panevėžys">Panevėžys</option>
+                <option value="Šiauliai">Šiauliai</option>
+            </select>
+        </div>
+        <div class="form-group col-md-10">
+            <label for="searchWord">Paieška pagal skelbimą</label>
+            <input type="text" name="searchWord" <#if searchWord??>value="${searchWord}"</#if> class="form-control"
+        id="searchWord">
     </div>
-    <#else>
-    <h3>Prekių nėra</h3>
-</#list>
-<#if user.email??>
-<hr>
-<h3>Sukurti naują prekę</h3>
-<form action="/product/create" method="post" enctype="multipart/form-data">
-    Skelbimo pavadinimas: <input type="text" name="title"/><br><br>
-    Skelbimo aprašymas: <input type="text" name="description"/><br><br>
-    Kaina: <input type="number" name="price"/><br><br>
-    Miestas: <input type="text" name="city"/><br><br>
-    Pirma nuotrauka: <input type="file" name="file1" accept="image/png, image/jpeg"/><br><br>
-    Antra nuotrauka: <input type="file" name="file2" accept="image/png, image/jpeg"/><br><br>
-    Trečia nuotrauka: <input type="file" name="file3" accept="image/png, image/jpeg"/><br><br>
-    <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Pridėti prekę"/>
+    <button style="width: 100%" type="submit" class="btn btn-dark">Paieška</button>
+    </div>
 </form>
-</#if>
-</body>
-</html>
+<hr>
+<div class="card-columns">
+    <#list products as product>
+    <a href="/product/${product.id}" class="product-link">
+        <div class="card text-white bg-dark my-3 product">
+
+            <img src="/images/${product.previewImageId}"
+                 class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">${product.title}</h5>
+                <p class="card-text">${product.price}.00€</p>
+            </div>
+            <div class="card-footer">
+                ${product.city}
+            </div>
+        </div>
+    </a>
+    <#else>
+    <h1 style="text-align: center">Nerasta</h1>
+</#list>
+</div>
+</@t.template>

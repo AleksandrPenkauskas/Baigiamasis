@@ -11,6 +11,7 @@ For further reference, please consider the following sections:
 * [Apache Freemarker](https://docs.spring.io/spring-boot/docs/2.5.6/reference/htmlsingle/#web.servlet.spring-mvc.template-engines)
 * [Spring Security](https://docs.spring.io/spring-boot/docs/2.5.6/reference/htmlsingle/#web.security)
 * [Java Mail Sender](https://docs.spring.io/spring-boot/docs/2.5.6/reference/htmlsingle/#io.email)
+* [Bootstrap] (https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
@@ -24,3 +25,7 @@ The following guides illustrate how to use some features concretely:
 * [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
 * [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
 * [Use MySQL database] (CREATE SCHEMA `baigiamasis_db` ;)
+*                       SET GLOBAL max_allowed_package=16777216;
+*                       Restart MySQL database
+* [Bootstrap] (https://getbootstrap.com/docs/5.1/getting-started/download/)
+* 

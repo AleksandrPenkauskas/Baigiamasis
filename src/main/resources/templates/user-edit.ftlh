@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>El.Parduotuvė "Baigiamasis darbas"</title>
-</head>
-<body>
-<h1>| Elektronikos prekių parduotuvė |</h1><hr>
-<h3>Vartotojo ${user.name} redagavimas</h3>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+<h1 style="text-align: center">Vartotojo ${user.name} registravimas</h1><hr>
 <form action="/admin/user/edit" method="post">
     <#list roles as role>
     <div>
@@ -14,7 +9,7 @@
 </#list>
 <input type="hidden" value="${user.id}" name="userId">
 <input type="hidden" value="${_csrf.token}" name="_csrf">
-<button type="submit">Išsaugoti</button>
+<button type="submit" class="btn btn-dark">Išsaugoti</button>
 </form>
-</body>
-</html>
+
+</@t.template>
